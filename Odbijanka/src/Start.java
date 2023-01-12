@@ -20,16 +20,6 @@ public class Start extends Rectangle
     {
         super(x,y,width,height);
     }
-
-    /**
-     * Usunięcie napisu z widoczności ekranu
-     */
-    public void won_z_ekranu()
-    {
-        x = 99999;
-        y = 0;
-    }
-
     /**
      * Rysowanie grafiki w programie
      * @param g obiekt klasy Graphics reprezentujący ścieżkę do pliku png
@@ -39,5 +29,13 @@ public class Start extends Rectangle
         i = new ImageIcon("zasoby/start.png").getImage();
 
         g.drawImage(i, x,y,null);
+    }
+    /**
+     * Usunięcie napisu z widoczności ekranu
+     */
+    public void won_z_ekranu()
+    {
+        x = 99999;
+        y = 0;
     }
 }

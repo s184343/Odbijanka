@@ -20,6 +20,15 @@ public class Koniec1 extends Rectangle
     {
         super(x,y,width,height);
     }
+    /**
+     * Rysowanie grafiki w programie
+     * @param g obiekt klasy Graphics reprezentujący ścieżkę do pliku png
+     */
+    public void rysuj(Graphics g)
+    {
+        i = new ImageIcon("zasoby/koniec1.png").getImage();
+        g.drawImage(i, x,y,null);
+    }
 
     /**
      * Pokazanie grafiki na ekranie
@@ -36,15 +45,5 @@ public class Koniec1 extends Rectangle
     {
         x = 0;
         y = 99999;
-    }
-
-    /**
-     * Rysowanie grafiki w programie
-     * @param g obiekt klasy Graphics reprezentujący ścieżkę do pliku png
-     */
-    public void rysuj(Graphics g)
-    {
-        i = new ImageIcon("zasoby/koniec1.png").getImage();
-        g.drawImage(i, x,y,null);
     }
 }

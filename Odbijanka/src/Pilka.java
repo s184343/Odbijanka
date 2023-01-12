@@ -38,6 +38,15 @@ public class Pilka extends Rectangle
             rusz_y--;
         zwrot_y(rusz_y*Wartosci.predkosc_pilki);
     }
+    /**
+     * Umieszczenie grafiki piłki na ekranie
+     * @param g obiekt klasy Graphics reprezentujący ścieżkę do pliku png
+     */
+    public void rysuj(Graphics g)
+    {
+        pilka = new ImageIcon("zasoby/pilka.png").getImage();
+        g.drawImage(pilka, x,y,null);
+    }
 
     /**
      * Ustalenie kierunku poruszania się po osi x
@@ -65,13 +74,5 @@ public class Pilka extends Rectangle
         y += kierunek_y;
     }
 
-    /**
-     * Umieszczenie grafiki piłki na ekranie
-     * @param g obiekt klasy Graphics reprezentujący ścieżkę do pliku png
-     */
-    public void rysuj(Graphics g)
-    {
-        pilka = new ImageIcon("zasoby/pilka.png").getImage();
-        g.drawImage(pilka, x,y,null);
-    }
+
 }

@@ -30,6 +30,19 @@ public class Gracze extends Rectangle
         super(x,y,szerokosc_gracza,wysokosc_gracza);
         this.id=id;
     }
+    /**
+     * Umieszczenie obrazów postaci graczy na planszy
+     * @param g obiekt klasy Graphics reprezentujący ścieżkę do pliku png
+     */
+    public void rysuj(Graphics g)
+    {
+        g1 = new ImageIcon("zasoby/gracz1.png").getImage();
+        g2 = new ImageIcon("zasoby/gracz2.png").getImage();
+        if(id==1)
+            g.drawImage(g1, x,y,null);
+        if(id==2)
+            g.drawImage(g2,x,y,null);
+    }
 
     /**
      * Interakcja gracza z programem - wciśnięcie klawisza
@@ -118,17 +131,6 @@ public class Gracze extends Rectangle
         y = y + kierunek_y;
     }
 
-    /**
-     * Umieszczenie obrazów postaci graczy na planszy
-     * @param g obiekt klasy Graphics reprezentujący ścieżkę do pliku png
-     */
-    public void rysuj(Graphics g)
-    {
-        g1 = new ImageIcon("zasoby/gracz1.png").getImage();
-        g2 = new ImageIcon("zasoby/gracz2.png").getImage();
-        if(id==1)
-            g.drawImage(g1, x,y,null);
-        if(id==2)
-            g.drawImage(g2,x,y,null);
-    }
+
+
 }

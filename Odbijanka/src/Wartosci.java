@@ -20,9 +20,9 @@ public class Wartosci
     /**Wysokość grafiki gracza*/
     static int wysokosc_gracza =100;
     /**Prędkość początkowa poruszania się piłki po planszy*/
-    static int predkosc_pilki = 7;
+    static int predkosc_pilki = 10;
     /**Prędkość poruszania się gracza po planszy*/
     static int predkosc_gracza = 10;
     /**Liczba punktów kończąca rozgrywkę*/
-    static int do_ilu = 10;
+    static int do_ilu = 5;
 }

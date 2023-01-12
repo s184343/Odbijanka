@@ -53,6 +53,40 @@ public class Panel extends JPanel implements Runnable
         this.addKeyListener(new KL(this));
         this.setPreferredSize(Wartosci.wymiary);
     }
+    /**Pętla gry.
+     * Działanie rysowania i poruszania się obiektów w czasie rzeczywistym.
+     * Warunki zakończenia rozgrywki.
+     * */
+    @Override
+    public void run()
+    {
+        long t = System.nanoTime();
+        double ns = 1E9/60;
+        double roznica = 0;
+        while(true)
+        {
+            long now = System.nanoTime();
+            roznica += (now - t)/ns;
+            t = now;
+            if (roznica >= 1)
+            {
+                ruszaj();
+                odbicia();
+                repaint();
+                roznica--;
+                if(wynik.gracz1 == Wartosci.do_ilu)
+                {
+                    this.graj = false;
+                    koniec1.pokaz();
+                }
+                else if(wynik.gracz2 == Wartosci.do_ilu)
+                {
+                    this.graj = false;
+                    koniec2.pokaz();
+                }
+            }
+        }
+    }
     /**Utworzenie grafiki z tytułem pojawiającej się po uruchomieniu gry, przed rozpoczęciem rozgrywki*/
     public void start()
     {
@@ -202,38 +236,5 @@ public class Panel extends JPanel implements Runnable
             pilka();
         }
     }
-    /**Pętla gry.
-     * Działanie rysowania i poruszania się obiektów w czasie rzeczywistym.
-     * Warunki zakończenia rozgrywki.
-     * */
-    @Override
-    public void run()
-    {
-        long t = System.nanoTime();
-        double ns = 1E9/60;
-        double roznica = 0;
-        while(true)
-        {
-            long now = System.nanoTime();
-            roznica += (now - t)/ns;
-            t = now;
-            if (roznica >= 1)
-            {
-                ruszaj();
-                odbicia();
-                repaint();
-                roznica--;
-                if(wynik.gracz1 == Wartosci.do_ilu)
-                {
-                    this.graj = false;
-                    koniec1.pokaz();
-                }
-                else if(wynik.gracz2 == Wartosci.do_ilu)
-                {
-                    this.graj = false;
-                    koniec2.pokaz();
-                }
-            }
-        }
-    }
+
 }
